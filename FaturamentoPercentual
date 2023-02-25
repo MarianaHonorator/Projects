@@ -1,0 +1,71 @@
+package JavaProjects;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class FaturamentoPercentual {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in).useLocale(Locale.US);
+
+		double soma = 0;
+		double vetor[] = new double[10];
+
+		System.out.println();
+		System.out.println("Digite o faturamento mensal da Distribuidora por estado: ");
+		System.out.println();
+		System.out.println("------------------------------");
+
+		System.out.print("SP - R$ ");
+		vetor[0] = sc.nextDouble();
+		System.out.print("RJ - R$ ");
+		vetor[1] = sc.nextDouble();
+		System.out.print("MG - R$ ");
+		vetor[2] = sc.nextDouble();
+		System.out.print("ES - R$ ");
+		vetor[3] = sc.nextDouble();
+		System.out.print("Outros - R$ ");
+		vetor[4] = sc.nextDouble();
+
+		for (int i = 0; i <= 4; i++) {
+
+			soma += vetor[i];
+		}
+
+		System.out.printf("Total: R$ %.2f", soma);
+		System.out.println();
+		System.out.println("------------------------------");
+
+		System.out.println();
+		System.out.println("Percentual de representação que cada estado teve");
+		System.out.println("dentro do valor total mensal da distribuidora:");
+		System.out.println();
+		
+		
+		for (int i = 0; i <= 4; i++) {
+			
+			vetor[i] = (vetor[i] * 100)/soma;
+		}
+		
+		System.out.println("------------------------------");
+		
+		
+		System.out.printf("SP - %.2f ", vetor[0]);
+		System.out.println();
+		System.out.printf("RJ - %.2f", vetor[1]);
+		System.out.println();
+		System.out.printf("MG- %.2f", vetor[2]);
+		System.out.println();
+		System.out.printf("ES - %.2f" , vetor[3]);
+		System.out.println();
+		System.out.printf("Outros - %.2f" ,vetor[4]);
+		System.out.println();
+		
+		
+		System.out.println("------------------------------");
+
+		sc.close();
+	}
+
+}
