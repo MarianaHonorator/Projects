@@ -1,0 +1,8 @@
+name = "Juliano"
+lista = []
+for i in name:
+
+ lista.append(i)
+
+
+print(lista[::-1])
