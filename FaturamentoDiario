@@ -1,0 +1,69 @@
+package JavaProjects;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class FaturamentoDiario {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in).useLocale(Locale.US);
+
+		double maior = 0, menor = 0, soma = 0;
+		double media = 0;
+		int cont = 0;
+
+		double vet[] = new double[40];
+
+		for (int i = 1; i <= 30; i++) {
+
+			System.out.println("dia " + i);
+			System.out.print("valor: ");
+			vet[i] = sc.nextDouble();
+
+			soma += vet[i];
+			media = soma / 30;
+			
+
+			if (i == vet[1]) {
+                
+				maior = vet[i];
+				menor = vet[i];
+
+			}
+
+			if (vet[i] > maior) {
+
+				maior = vet[i];
+
+			}
+
+			if (vet[i] < menor && vet[i] > 0) {
+
+				menor = vet[i];
+
+			}
+
+		}
+
+		for (int i = 1; i <= 30; i++) {
+
+			if (vet[i] > media && vet[i] > 0) {
+
+				cont += 1;
+
+			}
+
+		}
+
+		System.out.println(media);
+		System.out.println("Menor valor de faturamento: R$ " + menor);
+		System.out.println("Maior valor de faturamento: R$ " + maior);
+		System.out.println(
+				"Número de dias no mês em que o " + "valor de faturamento diário foi superior à média mensal: " + cont);
+
+		sc.close();
+
+	}
+
+}
